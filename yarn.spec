@@ -4,7 +4,7 @@
 #
 Name     : yarn
 Version  : 1.9.4
-Release  : 1
+Release  : 2
 URL      : https://github.com/yarnpkg/yarn/archive/v1.9.4.tar.gz
 Source0  : https://github.com/yarnpkg/yarn/archive/v1.9.4.tar.gz
 Summary  : No detailed summary available
@@ -13,6 +13,7 @@ License  : BSD-2-Clause MIT Unlicense WTFPL
 Requires: yarn-bin
 Requires: yarn-license
 Requires: yarn-data
+Requires: nodejs
 Patch1: build.patch
 
 %description
@@ -65,11 +66,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535844232
+export SOURCE_DATE_EPOCH=1535844459
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1535844232
+export SOURCE_DATE_EPOCH=1535844459
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/yarn
 cp LICENSE %{buildroot}/usr/share/doc/yarn/LICENSE
