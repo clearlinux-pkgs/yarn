@@ -11,7 +11,7 @@
 +	cp -R * $(DESTDIR)/usr/lib/node_modules/yarn
 +
 +	install -dm755 $(DESTDIR)/usr/bin
-+	ln -s /usr/lib/node_modules/yarn/bin/yarn.js $(DESTDIR)/usr/bin/yarn
++	ln -s src  $(DESTDIR)/usr/lib/node_modules/yarn/lib
 +	ln -s /usr/lib/node_modules/yarn/bin/yarn.js $(DESTDIR)/usr/bin/yarnpkg
 +
 +	install -Dm644 LICENSE "$(DESTDIR)/usr/share/licenses/$pkgname/LICENSE"

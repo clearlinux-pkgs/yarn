@@ -4,7 +4,7 @@
 #
 Name     : yarn
 Version  : 1.9.4
-Release  : 2
+Release  : 4
 URL      : https://github.com/yarnpkg/yarn/archive/v1.9.4.tar.gz
 Source0  : https://github.com/yarnpkg/yarn/archive/v1.9.4.tar.gz
 Summary  : No detailed summary available
@@ -66,11 +66,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535844459
+export SOURCE_DATE_EPOCH=1535845440
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1535844459
+export SOURCE_DATE_EPOCH=1535845440
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/yarn
 cp LICENSE %{buildroot}/usr/share/doc/yarn/LICENSE
@@ -5125,6 +5125,7 @@ cp scripts/licenses/Unlicense %{buildroot}/usr/share/doc/yarn/scripts_licenses_U
 /usr/lib/node_modules/yarn/flow-typed/npm/user-home_v2.x.x.js
 /usr/lib/node_modules/yarn/gulpfile.js
 /usr/lib/node_modules/yarn/jenkins_jobs.groovy
+/usr/lib/node_modules/yarn/lib
 /usr/lib/node_modules/yarn/package.json
 /usr/lib/node_modules/yarn/packages/lockfile/README.md
 /usr/lib/node_modules/yarn/packages/lockfile/package.json
@@ -5416,7 +5417,6 @@ cp scripts/licenses/Unlicense %{buildroot}/usr/share/doc/yarn/scripts_licenses_U
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/yarn
 /usr/bin/yarnpkg
 
 %files data
