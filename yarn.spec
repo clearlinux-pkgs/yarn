@@ -4,15 +4,15 @@
 #
 Name     : yarn
 Version  : 1.11.1
-Release  : 7
+Release  : 8
 URL      : https://github.com/yarnpkg/yarn/archive/v1.11.1.tar.gz
 Source0  : https://github.com/yarnpkg/yarn/archive/v1.11.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-2-Clause MIT Unlicense WTFPL
-Requires: yarn-bin
-Requires: yarn-license
-Requires: yarn-data
+License  : BSD-2-Clause MIT WTFPL
+Requires: yarn-bin = %{version}-%{release}
+Requires: yarn-data = %{version}-%{release}
+Requires: yarn-license = %{version}-%{release}
 Requires: nodejs
 Patch1: build.patch
 
@@ -66,44 +66,43 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537972509
+export SOURCE_DATE_EPOCH=1538066967
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1537972509
+export SOURCE_DATE_EPOCH=1538066967
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/yarn
-cp LICENSE %{buildroot}/usr/share/doc/yarn/LICENSE
-cp __tests__/commands/__snapshots__/licenses.js.snap %{buildroot}/usr/share/doc/yarn/__tests___commands___snapshots___licenses.js.snap
-cp __tests__/fixtures/autoclean/initialized/node_modules/left-pad/COPYING %{buildroot}/usr/share/doc/yarn/__tests___fixtures_autoclean_initialized_node_modules_left-pad_COPYING
-cp __tests__/fixtures/autoclean/not-initialized/node_modules/left-pad/COPYING %{buildroot}/usr/share/doc/yarn/__tests___fixtures_autoclean_not-initialized_node_modules_left-pad_COPYING
-cp __tests__/fixtures/autoclean/workspaces/foo/node_modules/left-pad/COPYING %{buildroot}/usr/share/doc/yarn/__tests___fixtures_autoclean_workspaces_foo_node_modules_left-pad_COPYING
-cp __tests__/fixtures/autoclean/workspaces/node_modules/left-pad/COPYING %{buildroot}/usr/share/doc/yarn/__tests___fixtures_autoclean_workspaces_node_modules_left-pad_COPYING
-cp __tests__/fixtures/check/resolutions-glob/node_modules/pad-left/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_check_resolutions-glob_node_modules_pad-left_LICENSE
-cp __tests__/fixtures/check/resolutions-tree/node_modules/pad-left/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_check_resolutions-tree_node_modules_pad-left_LICENSE
-cp __tests__/fixtures/check/resolutions/node_modules/pad-left/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_check_resolutions_node_modules_pad-left_LICENSE
-cp __tests__/fixtures/import/deep/node_modules/commander/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_commander_LICENSE
-cp __tests__/fixtures/import/deep/node_modules/commander/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_commander_node_modules_graceful-readlink_LICENSE
-cp __tests__/fixtures/import/deep/node_modules/user-home/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_user-home_license
-cp __tests__/fixtures/import/deep/node_modules/user-home/node_modules/os-homedir/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_user-home_node_modules_os-homedir_license
-cp __tests__/fixtures/import/github/node_modules/beeper/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_github_node_modules_beeper_license
-cp __tests__/fixtures/import/missing-dev/node_modules/commander/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_missing-dev_node_modules_commander_LICENSE
-cp __tests__/fixtures/import/missing-dev/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_missing-dev_node_modules_graceful-readlink_LICENSE
-cp __tests__/fixtures/import/missing-opt/node_modules/commander/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_missing-opt_node_modules_commander_LICENSE
-cp __tests__/fixtures/import/missing-opt/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_missing-opt_node_modules_graceful-readlink_LICENSE
-cp __tests__/fixtures/import/shallow-dev/node_modules/commander/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_commander_LICENSE
-cp __tests__/fixtures/import/shallow-dev/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_graceful-readlink_LICENSE
-cp __tests__/fixtures/import/shallow-dev/node_modules/os-homedir/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_os-homedir_license
-cp __tests__/fixtures/import/shallow-dev/node_modules/user-home/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_user-home_license
-cp __tests__/fixtures/import/shallow/node_modules/commander/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_commander_LICENSE
-cp __tests__/fixtures/import/shallow/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_graceful-readlink_LICENSE
-cp __tests__/fixtures/import/shallow/node_modules/os-homedir/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_os-homedir_license
-cp __tests__/fixtures/import/shallow/node_modules/user-home/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_user-home_license
-cp __tests__/fixtures/install/lockfile-missing/node_modules/left-pad/COPYING %{buildroot}/usr/share/doc/yarn/__tests___fixtures_install_lockfile-missing_node_modules_left-pad_COPYING
-cp __tests__/fixtures/remove/multiple-packages/node_modules/max-safe-integer/license %{buildroot}/usr/share/doc/yarn/__tests___fixtures_remove_multiple-packages_node_modules_max-safe-integer_license
-cp __tests__/fixtures/upgrade/latest-with-install-script/node_modules/left-pad/COPYING %{buildroot}/usr/share/doc/yarn/__tests___fixtures_upgrade_latest-with-install-script_node_modules_left-pad_COPYING
-cp resources/winsetup/license.rtf %{buildroot}/usr/share/doc/yarn/resources_winsetup_license.rtf
-cp scripts/licenses/Unlicense %{buildroot}/usr/share/doc/yarn/scripts_licenses_Unlicense
+mkdir -p %{buildroot}/usr/share/package-licenses/yarn
+cp LICENSE %{buildroot}/usr/share/package-licenses/yarn/LICENSE
+cp __tests__/commands/__snapshots__/licenses.js.snap %{buildroot}/usr/share/package-licenses/yarn/__tests___commands___snapshots___licenses.js.snap
+cp __tests__/fixtures/autoclean/initialized/node_modules/left-pad/COPYING %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_initialized_node_modules_left-pad_COPYING
+cp __tests__/fixtures/autoclean/not-initialized/node_modules/left-pad/COPYING %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_not-initialized_node_modules_left-pad_COPYING
+cp __tests__/fixtures/autoclean/workspaces/foo/node_modules/left-pad/COPYING %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_workspaces_foo_node_modules_left-pad_COPYING
+cp __tests__/fixtures/autoclean/workspaces/node_modules/left-pad/COPYING %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_workspaces_node_modules_left-pad_COPYING
+cp __tests__/fixtures/check/resolutions-glob/node_modules/pad-left/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_check_resolutions-glob_node_modules_pad-left_LICENSE
+cp __tests__/fixtures/check/resolutions-tree/node_modules/pad-left/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_check_resolutions-tree_node_modules_pad-left_LICENSE
+cp __tests__/fixtures/check/resolutions/node_modules/pad-left/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_check_resolutions_node_modules_pad-left_LICENSE
+cp __tests__/fixtures/import/deep/node_modules/commander/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_commander_LICENSE
+cp __tests__/fixtures/import/deep/node_modules/commander/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_commander_node_modules_graceful-readlink_LICENSE
+cp __tests__/fixtures/import/deep/node_modules/user-home/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_user-home_license
+cp __tests__/fixtures/import/deep/node_modules/user-home/node_modules/os-homedir/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_user-home_node_modules_os-homedir_license
+cp __tests__/fixtures/import/github/node_modules/beeper/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_github_node_modules_beeper_license
+cp __tests__/fixtures/import/missing-dev/node_modules/commander/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-dev_node_modules_commander_LICENSE
+cp __tests__/fixtures/import/missing-dev/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-dev_node_modules_graceful-readlink_LICENSE
+cp __tests__/fixtures/import/missing-opt/node_modules/commander/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-opt_node_modules_commander_LICENSE
+cp __tests__/fixtures/import/missing-opt/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-opt_node_modules_graceful-readlink_LICENSE
+cp __tests__/fixtures/import/shallow-dev/node_modules/commander/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_commander_LICENSE
+cp __tests__/fixtures/import/shallow-dev/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_graceful-readlink_LICENSE
+cp __tests__/fixtures/import/shallow-dev/node_modules/os-homedir/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_os-homedir_license
+cp __tests__/fixtures/import/shallow-dev/node_modules/user-home/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_user-home_license
+cp __tests__/fixtures/import/shallow/node_modules/commander/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_commander_LICENSE
+cp __tests__/fixtures/import/shallow/node_modules/graceful-readlink/LICENSE %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_graceful-readlink_LICENSE
+cp __tests__/fixtures/import/shallow/node_modules/os-homedir/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_os-homedir_license
+cp __tests__/fixtures/import/shallow/node_modules/user-home/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_user-home_license
+cp __tests__/fixtures/install/lockfile-missing/node_modules/left-pad/COPYING %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_install_lockfile-missing_node_modules_left-pad_COPYING
+cp __tests__/fixtures/remove/multiple-packages/node_modules/max-safe-integer/license %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_remove_multiple-packages_node_modules_max-safe-integer_license
+cp __tests__/fixtures/upgrade/latest-with-install-script/node_modules/left-pad/COPYING %{buildroot}/usr/share/package-licenses/yarn/__tests___fixtures_upgrade_latest-with-install-script_node_modules_left-pad_COPYING
+cp resources/winsetup/license.rtf %{buildroot}/usr/share/package-licenses/yarn/resources_winsetup_license.rtf
 %make_install
 
 %files
@@ -5573,35 +5572,34 @@ cp scripts/licenses/Unlicense %{buildroot}/usr/share/doc/yarn/scripts_licenses_U
 /usr/share/doc/kgname/README.md
 
 %files license
-%defattr(0644,root,root,0755)
-/usr/share/doc/yarn/LICENSE
-/usr/share/doc/yarn/__tests___commands___snapshots___licenses.js.snap
-/usr/share/doc/yarn/__tests___fixtures_autoclean_initialized_node_modules_left-pad_COPYING
-/usr/share/doc/yarn/__tests___fixtures_autoclean_not-initialized_node_modules_left-pad_COPYING
-/usr/share/doc/yarn/__tests___fixtures_autoclean_workspaces_foo_node_modules_left-pad_COPYING
-/usr/share/doc/yarn/__tests___fixtures_autoclean_workspaces_node_modules_left-pad_COPYING
-/usr/share/doc/yarn/__tests___fixtures_check_resolutions-glob_node_modules_pad-left_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_check_resolutions-tree_node_modules_pad-left_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_check_resolutions_node_modules_pad-left_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_commander_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_commander_node_modules_graceful-readlink_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_user-home_license
-/usr/share/doc/yarn/__tests___fixtures_import_deep_node_modules_user-home_node_modules_os-homedir_license
-/usr/share/doc/yarn/__tests___fixtures_import_github_node_modules_beeper_license
-/usr/share/doc/yarn/__tests___fixtures_import_missing-dev_node_modules_commander_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_missing-dev_node_modules_graceful-readlink_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_missing-opt_node_modules_commander_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_missing-opt_node_modules_graceful-readlink_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_commander_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_graceful-readlink_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_os-homedir_license
-/usr/share/doc/yarn/__tests___fixtures_import_shallow-dev_node_modules_user-home_license
-/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_commander_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_graceful-readlink_LICENSE
-/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_os-homedir_license
-/usr/share/doc/yarn/__tests___fixtures_import_shallow_node_modules_user-home_license
-/usr/share/doc/yarn/__tests___fixtures_install_lockfile-missing_node_modules_left-pad_COPYING
-/usr/share/doc/yarn/__tests___fixtures_remove_multiple-packages_node_modules_max-safe-integer_license
-/usr/share/doc/yarn/__tests___fixtures_upgrade_latest-with-install-script_node_modules_left-pad_COPYING
-/usr/share/doc/yarn/resources_winsetup_license.rtf
-/usr/share/doc/yarn/scripts_licenses_Unlicense
+%defattr(-,root,root,-)
+/usr/share/package-licenses/yarn/LICENSE
+/usr/share/package-licenses/yarn/__tests___commands___snapshots___licenses.js.snap
+/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_initialized_node_modules_left-pad_COPYING
+/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_not-initialized_node_modules_left-pad_COPYING
+/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_workspaces_foo_node_modules_left-pad_COPYING
+/usr/share/package-licenses/yarn/__tests___fixtures_autoclean_workspaces_node_modules_left-pad_COPYING
+/usr/share/package-licenses/yarn/__tests___fixtures_check_resolutions-glob_node_modules_pad-left_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_check_resolutions-tree_node_modules_pad-left_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_check_resolutions_node_modules_pad-left_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_commander_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_commander_node_modules_graceful-readlink_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_user-home_license
+/usr/share/package-licenses/yarn/__tests___fixtures_import_deep_node_modules_user-home_node_modules_os-homedir_license
+/usr/share/package-licenses/yarn/__tests___fixtures_import_github_node_modules_beeper_license
+/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-dev_node_modules_commander_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-dev_node_modules_graceful-readlink_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-opt_node_modules_commander_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_missing-opt_node_modules_graceful-readlink_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_commander_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_graceful-readlink_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_os-homedir_license
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow-dev_node_modules_user-home_license
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_commander_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_graceful-readlink_LICENSE
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_os-homedir_license
+/usr/share/package-licenses/yarn/__tests___fixtures_import_shallow_node_modules_user-home_license
+/usr/share/package-licenses/yarn/__tests___fixtures_install_lockfile-missing_node_modules_left-pad_COPYING
+/usr/share/package-licenses/yarn/__tests___fixtures_remove_multiple-packages_node_modules_max-safe-integer_license
+/usr/share/package-licenses/yarn/__tests___fixtures_upgrade_latest-with-install-script_node_modules_left-pad_COPYING
+/usr/share/package-licenses/yarn/resources_winsetup_license.rtf
