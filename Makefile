@@ -1,5 +1,5 @@
 PKG_NAME := yarn
-URL = https://github.com/yarnpkg/yarn/releases/download/v1.13.0/yarn-v1.13.0.tar.gz
+URL = https://github.com/yarnpkg/yarn/archive/v1.15.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
